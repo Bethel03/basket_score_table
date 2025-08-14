@@ -65,14 +65,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
                     <div>
                         <h4 id="labelA" class="text-xl font-semibold text-indigo-600 dark:text-indigo-400">Équipe A</h4>
-                        <p class="text-lg">Score : <span id="scoreA">0</span></p>
+                        <p id="score" class="text-lg">Score : <span id="scoreA">0</span></p>
                         <button onclick="addPoint('A')" class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">+1 Point</button>
                         <button onclick="addFoul('A')" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">+1 Faute</button>
                         <button onclick="removePoint('A')" class="mt-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">−1 Point</button>
                     </div>
                     <div>
                         <h4 id="labelB" class="text-xl font-semibold text-indigo-600 dark:text-indigo-400">Équipe B</h4>
-                        <p class="text-lg">Score : <span id="scoreB">0</span></p>
+                        <p id="score" class="text-lg">Score : <span id="scoreB">0</span></p>
                         <button onclick="addPoint('B')" class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">+1 Point</button>
                         <button onclick="addFoul('B')" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">+1 Faute</button>
                         <button onclick="removePoint('B')" class="mt-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">−1 Point</button>
