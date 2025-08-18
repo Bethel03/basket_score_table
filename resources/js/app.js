@@ -133,4 +133,3 @@ function endMatch() {
     document.getElementById('startMatchBtn').disabled = true;
 }
 
-// ...code de base sans synchronisation temps réel...
