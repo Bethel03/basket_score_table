@@ -14,7 +14,7 @@ class HomeController extends Controller
         if(Auth::check() && Auth::user()->user_type == 'admin'){
             return view('admin.dashboard', compact('teams'));
         }
-        elseif(Auth::check() && Auth::user()->user_type == 'user'){
+        elseif(Auth::check() && Auth::user()->user_type == 'user' ){
             return view('dashboard');
         }
     }

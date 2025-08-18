@@ -1,21 +1,19 @@
+
 import './bootstrap';
-
 import Alpine from 'alpinejs';
-
 window.Alpine = Alpine;
-
 Alpine.start();
 
 //  Variables globales
 let currentQuarter = 1;
 const totalQuarters = 4;
-const quarterDuration = 60; // 1 min pour test
+const quarterDuration = 600; 
 let timeRemaining = quarterDuration;
 let timerInterval;
 let isRunning = false;
 
 
-//  Démarrer le match
+//  Demarrer le match
 window.startMatch = function () {
     const teamASelect = document.getElementById('teamA');
     const teamBSelect = document.getElementById('teamB');
@@ -23,13 +21,25 @@ window.startMatch = function () {
     const teamAId = teamASelect.value;
     const teamBId = teamBSelect.value;
 
+    const teamAName = teamASelect.options[teamASelect.selectedIndex]?.text || '';
+    const teamBName = teamBSelect.options[teamBSelect.selectedIndex]?.text || '';
+
     
 
-    const teamAName = teamASelect.options[teamASelect.selectedIndex].text;
-    const teamBName = teamBSelect.options[teamBSelect.selectedIndex].text;
+    
+    if ( teamAName === teamBName) {
+        alert("⚠️ Les deux équipes doivent être différentes.");
+        return;
+    }
 
+    // Mise a jour des labels
     document.getElementById('labelA').textContent = teamAName;
     document.getElementById('labelB').textContent = teamBName;
+
+    // Affichage dynamique
+    document.getElementById('matchSetup').classList.add('hidden');
+    document.getElementById('matchControls').classList.remove('hidden');
+    document.getElementById('scoreboard').classList.remove('hidden');
 
     alert("🏀 Match lancé !");
     currentQuarter = 1;
@@ -38,8 +48,7 @@ window.startMatch = function () {
     startQuarter();
 };
 
-
-//  Démarrer un quart-temps
+//  Demarrer un quart-temps
 function startQuarter() {
     isRunning = true;
     timerInterval = setInterval(() => {
@@ -69,7 +78,7 @@ window.stopTimer = function () {
     isRunning = false;
 };
 
-//  Démarrer  le chrono
+//  Demarrer  le chrono
 window.startTimer = function () {
     if (!isRunning) {
         startQuarter();
@@ -122,12 +131,6 @@ window.addFoul = function (team) {
 function endMatch() {
     alert("✅ Match terminé !");
     document.getElementById('startMatchBtn').disabled = true;
-
-    // Affiche le résumé si tu as une section dédiée
-    const dashboard = document.getElementById('dashboard');
-    if (dashboard) {
-        document.getElementById('finalScoreA').textContent = document.getElementById('scoreA').textContent;
-        document.getElementById('finalScoreB').textContent = document.getElementById('scoreB').textContent;
-        dashboard.style.display = 'block';
-    }
 }
+
+// ...code de base sans synchronisation temps réel...
